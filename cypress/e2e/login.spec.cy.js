@@ -1,6 +1,6 @@
 import userData from '../fixtures/user-data.json'
 
-describe('Orange HRM Tests', () => { 
+describe ('Orange HRM Tests', () => { 
 
   const selectorsList ={
     usernameField: "[name='username']",
@@ -11,16 +11,17 @@ describe('Orange HRM Tests', () => {
     wrongCredentialAlert: "[role='alert']",
   }
 
-  it('Loggin - sucess', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+  it ('Loggin - sucess', () => {
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userSucess.username)
     cy.get(selectorsList.passwordField).type(userData.userSucess.password)
     cy.get(selectorsList.loginButton).click()
     cy.location('pathname').should('equal','/web/index.php/dashboard/index')
     cy.get(selectorsList.dashboardGrid)
   })
-  it('Loggin - Fail', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+
+  it ('Loggin - Fail', () => {
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userFail.username)
     cy.get(selectorsList.passwordField).type(userData.userFail.password)
     cy.get(selectorsList.loginButton).click()
