@@ -2,7 +2,7 @@
 
 This project utilizes cyopress to automate the testing of a login feature and a user update feature. Cypress is a JS-based end-to-end testing framework that allows developers to write tests and execute them in a real browser.
 
-##Installation
+## Installation
 ```bash
 npm install
 ```
